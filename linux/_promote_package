@@ -1,0 +1,10 @@
+#!/bin/bash
+
+_promote_pkg() {
+  source '/src/pkg.env'
+  hab origin key download "$pkg_origin" --secret
+  hab origin key download "$pkg_origin"
+  hab pkg upload "/src/results/$pkg_origin-$pkg_name-$pkg_version-$pkg_release-x86_64-linux.hart"
+  hab pkg promote "$pkg_origin/$pkg_name/$pkg_version/$pkg_release" $1
+  return $?
+}

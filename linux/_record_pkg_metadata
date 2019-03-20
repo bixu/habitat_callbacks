@@ -1,0 +1,9 @@
+#!/bin/bash
+
+_record_pkg_metadata() {
+  echo "export pkg_origin=$pkg_origin
+  export pkg_name=$pkg_name
+  export pkg_version=$pkg_version
+  export pkg_release=$pkg_release" > '/src/pkg.env'
+  return $?
+}

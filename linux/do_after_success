@@ -1,0 +1,6 @@
+#!/bin/bash
+
+do_after_success() {
+  _promote_pkg 'staging'
+  return $?
+}
